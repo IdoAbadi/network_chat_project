@@ -35,3 +35,10 @@ def handle_client(client_socket, address):
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((IP, PORT))
 server.listen(5)
+print(f"[*] server is running and listeninng on port {PORT}")
+
+while True:
+    client_sock, addr = server.accept()
+    # making a new process for each client
+    thread =  threading.Thread(target=handle_client, args=(client_sock, addr))
+    thread.start()
