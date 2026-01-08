@@ -14,7 +14,7 @@ def recieve_messages(client_socket):
             print("[!] server connection lost.")
             break
 
-SERVER_IP = '127.0.0.1'
+SERVER_IP = '192.168.31.229'
 PORT = 5555
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -24,7 +24,7 @@ try:
     username = input("choose UserName: ")
     client.send(username.encode('utf-8'))
 
-    thread = threading.Thread(target=recieve_messages, args=(client, ))
+    thread = threading.Thread(target= recieve_messages, args=(client, ))
     thread.daemon = True
     thread.start()
 
@@ -33,7 +33,7 @@ try:
         msg = input("send message (in format Name:Message): ")
         if msg.lower() == 'quit':
             break
-        client.sen(msg.encode('utf-8'))
+        client.send(msg.encode('utf-8'))
 except Exception as e:
     print(f"[!] Error: {e}")
     

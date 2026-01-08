@@ -20,7 +20,7 @@ def handle_client(client_socket, address):
             if ":" in data:
                 target, message = data.split(":", 1)
                 if target in clients:
-                    clients[target].send(f"from {username}: {message}".encode(utf-8))
+                    clients[target].send(f"from {username}: {message}".encode('utf-8'))
                 else:
                     client_socket.send(f"Error: User {target} not found.".encode('utf-8'))
             
