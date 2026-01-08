@@ -45,7 +45,13 @@ def handle_client(client_socket, address):
         if username in clients:
             del clients[username]
             print(f"[-] {username} disconnected")
-            client_socket.close()
+            exit_message = f"\n[Notification] {username} has left the chat."
+            for name, sock in clients.items():
+                try:
+                    sock.send(exit_message.encode('utf-8'))
+                except:
+                    pass
+        client_socket.close()
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((IP, PORT))
 server.listen(30)
