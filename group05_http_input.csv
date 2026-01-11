@@ -1,6 +1,0 @@
-msg_id,app_protocol,src_port,dst_port,message,timestamp
-1,DNS,50100,53,Standard query A www.example.com,0.001
-2,HTTP,50101,80,GET /index.html HTTP/1.1,0.015
-3,HTTP,80,50101,HTTP/1.1 200 OK,0.020
-4,HTTP,50102,80,GET /style.css HTTP/1.1,0.025
-5,HTTP,80,50102,HTTP/1.1 200 OK,0.030
